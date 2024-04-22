@@ -13,7 +13,7 @@ public class Program {
     public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter the IP address of the server you want to log in:\n>" + UI.ANSI_GREEN);
+        System.out.print(UI.ANSI_RESET + "Enter the IP address of the server you want to log in:\n>" + UI.ANSI_GREEN);
         String serverAddress = scanner.nextLine();
 
         System.out.print(UI.ANSI_RESET + "Enter your desired username during this session:\n>" + UI.ANSI_GREEN);
