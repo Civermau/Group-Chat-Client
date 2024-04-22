@@ -4,6 +4,7 @@ This program is a simple chat client that allows you to connect to a server, sen
 
 ## Requirements
 User __must__ have JDK 22 to run this program 
+
 Can get it from here:
 > https://www.oracle.com/jp/java/technologies/downloads/
 
