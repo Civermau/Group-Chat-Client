@@ -13,17 +13,17 @@ public class Program {
     public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter the IP address of the server you want to log in:\n>");
+        System.out.print("Enter the IP address of the server you want to log in:\n>" + UI.ANSI_GREEN);
         String serverAddress = scanner.nextLine();
 
-        System.out.print("Enter your desired username during this session:\n>");
+        System.out.print(UI.ANSI_RESET + "Enter your desired username during this session:\n>" + UI.ANSI_GREEN);
         String username = scanner.nextLine();
 
         while (true) {
             try {
                 if(!connectedToServer) {
                     server = new Socket(serverAddress, 7777);
-                    System.out.println("Connected to server at " + server.getInetAddress() + " at port 7777");
+                    System.out.println(UI.ANSI_GREEN + "Connected to server at " + UI.ANSI_CYAN + server.getInetAddress() + UI.ANSI_GREEN + " at port 7777");
 
                     inputStream = server.getInputStream();
                     outputStream = server.getOutputStream();
@@ -32,14 +32,14 @@ public class Program {
                     connectedToServer = true;
                 }
 
-                System.out.print(">");
+                System.out.print(UI.ANSI_RESET + ">" + UI.ANSI_GREEN);
                 String message = scanner.nextLine();
                 outputStream.write(message.getBytes());
             } catch (IOException e) {
                 connectedToServer = false;
 
-                System.out.println("Couldn't connect to server! Error: " + e);
-                System.out.println("Trying again in 3 seconds...\n");
+                System.out.println(UI.ANSI_RED + "Couldn't connect to server! Error: " + UI.ANSI_YELLOW + e);
+                System.out.println(UI.ANSI_RED + "Trying again in 3 seconds...\n");
                 Thread.sleep(3000);
             }
         }
